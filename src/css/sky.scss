@@ -1,0 +1,44 @@
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  background-image: url('./../access/image/stars.png');
+}
+.App::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  background-image: url('./../access/image/stars.png');
+}
+
+.App::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  background-image: url('./../access/image/twinkling.png');
+  animation: twikling-move 100s infinite linear;
+}
+
+@keyframes twikling-move {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 5000px 5000px;
+  }
+}

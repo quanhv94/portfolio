@@ -1,0 +1,143 @@
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  background-image: url("./../access/image/stars.png"); }
+
+.App::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  background-image: url("./../access/image/stars.png"); }
+
+.App::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  background-image: url("./../access/image/twinkling.png");
+  animation: twikling-move 100s infinite linear; }
+
+@keyframes twikling-move {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 5000px 5000px; } }
+
+.home-page {
+  background: linear-gradient(#47cbfb, #fff);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transform: scale(0.1) translateX(-165vw);
+  transition: 2s all;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5; }
+  .home-page.active {
+    z-index: 100;
+    transform: scale(1) translateX(0); }
+  .home-page a {
+    padding: 20px; }
+  .home-page .cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 307px;
+    background: url(./../access/image/cloud.png);
+    animation: cloud-move 15s infinite linear; }
+  .home-page .ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 113px;
+    background: url(./../access/image/ground.jpg); }
+  .home-page .grass {
+    position: absolute;
+    bottom: 108px;
+    left: 0;
+    width: 100%;
+    height: 58px;
+    background: url(./../access/image/grass.png);
+    animation: grass 0.5s infinite steps(3); }
+  .home-page .top {
+    position: relative; }
+
+@keyframes cloud-move {
+  from {
+    background-position-x: 0; }
+  to {
+    background-position-x: 752px; } }
+
+@keyframes grass {
+  from {
+    background-position-y: 0; }
+  to {
+    background-position-y: 165px; } }
+
+.skill-page {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transform: scale(0.1) translateX(-55vw);
+  transition: 2s all;
+  z-index: 0; }
+  .skill-page.active {
+    z-index: 100;
+    transform: scale(1) translateX(0); }
+
+.experience-page {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transform: scale(0.1) translateX(55vw);
+  transition: 2s all;
+  z-index: 0; }
+  .experience-page.active {
+    z-index: 100;
+    transform: scale(1) translateX(0); }
+
+.about-page {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transform: scale(0.1) translateX(165vw);
+  transition: all 2s;
+  z-index: 0; }
+  .about-page.active {
+    z-index: 100;
+    transform: scale(1) translateX(0); }
+
+body {
+  font-family: 'Press Start 2P', cursive; }

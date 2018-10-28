@@ -22,6 +22,7 @@
   .home-page .cloud {
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     height: 307px;
     background: url(./../access/image/cloud.png);
@@ -29,12 +30,14 @@
   .home-page .ground {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
     height: 113px;
     background: url(./../access/image/ground.jpg); }
   .home-page .grass {
     position: absolute;
     bottom: 108px;
+    left: 0;
     width: 100%;
     height: 58px;
     background: url(./../access/image/grass.png);

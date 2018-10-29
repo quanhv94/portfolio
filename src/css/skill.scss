@@ -1,5 +1,5 @@
 .skill-page {
-  background: #fff;
+  background: #000;
   position: fixed;
   top: 0;
   left: 0;
@@ -7,9 +7,140 @@
   height: 100vh;
   transform: scale(0.1) translateX(-55vw);
   transition: 2s all;
+  transition-property: z-index, transform;
   z-index: 0;
+  overflow: auto;
   &.active {
     z-index: 100;
     transform: scale(1) translateX(0);
   }
+  .roof, .ground {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: 80px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    text-shadow: 6px 2px #ff0000;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    min-width: 1024px;
+  }
+  .roof {
+    top: 0;
+    background: url(./../access/image/brick-1.png)
+  }
+  .ground {
+    bottom: 0;
+    background: url(./../access/image/brick-2.png)
+  }
+  .animation-container {
+    width: 1024px;
+    position: absolute;
+    top: 80px;
+    left: calc(50% - 512px);
+    height: calc(100% - 160px);
+  }
+  .brick-list {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 220px;
+    left: 10%;
+    .brick {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      background: url(./../access/image/brick-1.png);
+      .tree {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        background: url(./../access/image/mario-tree.png);
+        background-size: 100%;
+        width: 100%;
+        overflow: hidden;
+        [data-tooltipped] {
+          position: absolute;
+          left: 10px;
+        }
+        img {
+          width: 60px;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .character {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    bottom: 0;
+    >span {
+      content: "";
+      display: block;
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(./../access/image/mario.png);
+    }
+  }
+
+  .animation-container.active {
+    .brick {
+      animation: brick-raise 0.2s linear;
+      .tree {
+        animation: grow-up 2s linear forwards;
+      }
+    }
+    @for $i from 1 through 10 {
+      .brick:nth-child(#{$i}) {
+        animation-delay: #{$i}s;
+        .tree {
+          animation-delay: #{$i + 0.2}s;
+        }
+
+      }
+    }
+    .character {
+      animation: character-move 7s forwards linear;
+      >span {
+        animation: mario-sprite 0.5s steps(3);
+        animation-iteration-count: 14;
+      }
+    }
+  }
+}
+
+@keyframes brick-raise {
+  0%   {transform: translateY(0px)}
+  50%  {transform: translateY(-20px)}
+  100% {transform: translateY(0px)}
+}
+
+@keyframes character-move {
+  0%   {left: 0;}
+  13%,18%,26%,32%,40%,46%,55%,61%,68%,74%,82%,88% {bottom: 0}
+  15%,29%,43%,58%,71%,85% {bottom: 200px}
+  100% {left: calc(100% - 64px)}
+}
+
+@keyframes mario-sprite {
+  0%   {background-position-x: 64px}
+  100% {background-position-x: 256px}
+}
+@keyframes grow-up {
+  0%   {height: 0}
+  100% {height: 400px}
 }

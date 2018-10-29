@@ -4,6 +4,12 @@ export const goToPage = (id) => {
   setTimeout(() => {
     const element = document.querySelector('#' + id)
     element && element.classList.add('active')
+    if (id === "skill_page") {
+      element.querySelector(".animation-container").classList.remove('active')
+      setTimeout(() => {
+        element.querySelector(".animation-container").classList.add('active')
+      }, 2500)
+    }
   }, 2000)
 }
 export const closePage = (id) => {

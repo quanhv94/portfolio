@@ -5,12 +5,14 @@
   "homepage": "http://quanhv94.github.io/portfolio",
   "dependencies": {
     "font-awesome": "^4.7.0",
+    "is-mobile": "^2.0.0",
     "jquery": "^3.3.1",
     "node-sass-chokidar": "^1.3.4",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-fontawesome": "^1.6.1",
-    "react-scripts": "2.0.5"
+    "react-scripts": "2.0.5",
+    "react-tippy": "^1.2.3"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
